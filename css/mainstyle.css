@@ -1,0 +1,547 @@
+@charset "utf-8";
+@import url("all.css");
+@import url( "../font/stylesheet.css");
+/* CSS Document */
+
+body{
+background-color: #FCFAEB;
+font-family: 'Questrial', Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";}
+
+p{font-size: 14px; font-family: 'Questrial', Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"; color: #7A3F0A; }
+.mau1{color: #FFA300}
+.mau2{color:#DFAC52}
+.mau3{color: #7A3F0A}
+.mau4{color: #FF6D81}
+.mau5{color: #D4001D}
+.mau6{color: #890013}
+.mau7{color: #FDEDD4}
+/*tiêu đề*/
+h1{ font-size: 40px; color: #FFA300 ;font-family: 'Coiny', Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif" }
+h2{ font-size: 35px; color: #FFA300 ;font-family:'Coiny', Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"}
+h3{ font-size: 30px; color: #FFA300 ;font-family: 'Coiny', Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"}
+h4{ font-size: 25px; color: #C17506;font-family: 'Questrial', Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"}
+h5{ font-size: 20px; color: #C17506;font-family: 'Questrial', Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"}
+h6{ font-size: 18px; color:#FCFAEB;font-family: 'Questrial', Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"}
+
+h1,h2,h3,h4,h5,h6,a,button,p{ margin:0; padding: 0}
+/*Reset box-sizing*/ 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.img-100 {
+width: 100%;
+}
+
+.container-fluid{ /*dùng khi cần layout toàn trang*/
+width: 100%; padding-left: 16px; padding-right: 16px;}
+.container { /*giới hạn độ rộng tối đa (1200px) và căn giữa trang*/
+width: 95%;
+margin: auto;
+}
+
+/*Hệ thống lưới*/
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+[class*="col-"] { /*chọn tất cả class chứa "col-", để áp dụng lề và viền*/
+  padding: 10px;
+ /* border: 1px solid blue;*/ /* test hiển thị, bỏ khi deploy */
+}
+
+.col-1  { width: 8.3333%}
+.col-2  { width: 16.6666%}
+.col-3  { width: 25%}
+.col-4  { width: 33.3333%}
+.col-5  { width: 41.6666%}
+.col-6  { width: 50%}
+.col-7  { width: 58.3333%}
+.col-8  { width: 66.6666%}
+.col-9  { width: 75%}
+.col-10 { width: 83.3333%}
+.col-11 { width: 91.6666%}
+.col-12 { width: 100%}
+
+/*-------------------- Responsive Breakpoints --------------------*/
+
+/* Mobile: dưới 600px */
+@media (max-width: 599px) {
+[class*="col-"] {
+width: 100%;
+}
+}
+
+/* Tablet: từ 600px trở lên */
+@media (min-width: 600px) {
+.container {
+width: 90%;
+margin: auto;
+}
+}
+
+/* Desktop: từ 1000px trở lên */
+@media (min-width: 1000px) {
+.container {
+width: 80%;
+margin: auto;
+}
+}
+/*top bar: dải trên cùng trang, thường dùng cho hotline, giờ mở cửa,...*/
+.top-bar {
+width: 100%; /* full chiều ngang */
+background-color: #FFA300; 
+color: #FDEDD4;
+padding: 5px 10px;
+}
+/*header:chiếm toàn bộ chiều ngang màn hình*/
+.header{
+width: 100%; /* full chiều ngang */
+height: 90px;
+background-color: #FDEDD4;
+color: #FFA300;
+padding: 0 10px;	
+/*phần này giống navbar cô chỉ*/	
+position: sticky;/*.header sẽ dính vào mép trên của trình duyệt khi cuộn xuống*/
+top: 0;/*khoảng cách giữa pt sticky và mép trên màn hình=0*/
+z-index: 999;
+box-shadow: 0 10px 5px rgba(0, 0, 0, 0.1);	
+}
+.header row {
+align-items: center;/* Căn giữa dọc các cột */
+height: 100px;/*chiều cao đủ lớn chứa logo */
+}
+.header img {
+max-height: 60px;
+width: auto;
+}
+/*căn lề chữ*/
+.text-right{
+text-align:right;
+}
+.text-justify{
+text-align: justify
+}
+.text-center{
+text-align: center;
+}
+.text-left{
+text-align: left
+}
+/*logo*/
+.logo {
+display: flex;
+align-items: center;     /* Căn giữa theo chiều dọc */
+height: 100%;            /* chiếm toàn chiều cao hàng */   
+justify-content: center
+}
+/*Link không gạch chân, màu cam, chữ in thường, chuyển động mượt khi hover.*/
+a{
+text-decoration: none;
+color: #FFAB24;
+text-transform: none;
+transition: 0.25s ease;
+font-weight: bold;
+}
+.menu{
+padding-top: 20px; /* Cho menu xích xuống một chút */
+}
+
+ul.menu
+{
+display: flex;
+padding: 0;
+list-style: none;
+justify-content: space-around;
+}
+ul.menu li/*Menu nằm ngang, không có chấm đầu dòng, các mục cách đều.*/
+{
+text-decoration: none;
+margin: 0;
+}
+ul a {font-size: 22px}
+ul.menu:hover a{/*Khi rê chuột lên menu: chuyển sang hồng (#FF6D81)*/
+color: #FF6D81 ; 
+}
+
+ul.menu:hover a:hover /*Khi rê vào link: màu kem, có nền cam, bo góc, đổ bóng*/
+{
+color: #FCF3E6;
+box-shadow: 2px 4px 0 0;
+padding: 10px 15px;
+border-radius: 30px;
+background-color: #FFA300;
+}
+/*banner, banner caption và caption background*/
+.banner {
+position: relative;
+}
+
+.banner-caption { 
+padding: 0; 
+width: 50%;
+position: absolute;
+z-index: 1;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+}
+
+.bn-caption{ 
+padding: 10px; 
+width: 40%;
+/*border: 2px solid blue;*/
+position: absolute;
+right: 5%; top: 5%;
+z-index: 1;
+}
+
+.caption-bg {
+position: relative;
+width: 100%;
+background-color: rgba(253, 237, 212, 0.9); /* cam mờ */
+z-index: -1; /* nằm phía sau chữ */
+border-radius: 50px;
+padding: 50px;
+}
+
+/*--- style he thong mau cho nút button---*/
+.btn-primary
+{ 
+background-color: #FFA300;
+color: #FCFAEB;
+margin: 10px;
+padding: 10px 16px;
+border-radius: 30px;
+transition: 0.25s ease;
+}
+.btn-primary:hover{
+background-color: #FF6D81;
+color: #FDD4DA;
+}
+
+.btn-secondary
+{ 
+background-color: #FF6D81;
+color: #FDD4DA;
+padding: 10px 16px;
+border-radius: 30px;
+transition: 0.25s ease;
+}
+.btn-secondary:hover{
+background-color: #FDD4DA;
+color: #FF6D81;
+}
+/*khung tròn cho hình*/
+.img-round-frame{
+border-radius: 20px;
+width: 60%;
+box-shadow: 10px 10px 0 rgb(255, 163, 0);/*độ lệch ngang, dọc, độ mờ*/
+display: block;/* Đảm bảo hình không là inline */
+margin: 0 auto;/* Căn giữa ngang */
+}
+
+/* thiết kế card */  
+.card {
+position: relative;/*để text nằm hết bên trong*/
+width: 100%;
+height: 400px;
+border-radius: 20px;
+overflow: hidden;/*tránh chữ or ảnh k bị tràn ra ngoài góc bo*/	
+}
+
+.card img {
+width: 100%;
+height: 100%;
+object-fit: cover;/*đảm bảo ảnh không bị méo, cắt cho vừa khung*/
+display: block;/*bỏ khoảng trắng dưới ảnh do mặc định ảnh là inline*/
+}
+
+.card-text {
+position: absolute;/*đặt chữ đè lên ảnh, dựa vào .card (vì nó là relative)*/
+bottom: 0;/*khoảng cách từ đáy ảnh tính dần lên*/
+width: 100%;
+height: 50px;
+background: #FFA300 ; /* nền chữ mờ đen */
+color: white;
+padding: 10px;/*khoảng cách quanh chữ*/
+font-size: 20px;
+text-align: center;}
+
+/*-- các cột nếu cần flex thì goi d-flex*/
+.d-flex{ display: flex}/*Gọi class này lên phần tử cha để bật chế độ Flexbox. Mặc định các phần tử con sẽ nằm trên 1 hàng (row).*/
+/*canh đẩy chiều dọc cho các box trong flex*/
+.align-items-center{align-items: center}/*Căn giữa các item theo chiều dọc (khi bạn dùng flex theo hàng).*/
+.align-items-end{align-items: flex-end}/*Căn các item xuống đáy của container (dọc).*/
+/*canh đẩy chiều ngang cho các box trong flex*/
+.justify-center{justify-content: center}
+.justify-between{justify-content: space-between}
+.justify-end{justify-content: flex-end}
+.justify-start{justify-content: flex-start}
+
+.spacer {
+  height: 60px;  
+}
+
+.prefooter{
+background-color:#FDEDD4;
+width: 100%;
+}
+.prefooter-col{
+height: 100px;                /* Khung chứa ảnh cao 200px */
+display: flex;                /* Bật chế độ flex để dễ căn giữa */
+align-items: center;          /* Căn giữa theo chiều dọc */
+overflow: hidden; /* Ẩn phần ảnh tràn ra ngoài */
+}
+.prefooter-col-img{             
+max-height: 130%;             /* Ảnh không cao quá khung */
+withd: auto;
+object-fit: contain;          /* Đảm bảo không méo hình */
+display: block;               /* Xóa khoảng trống dư thừa */
+}
+
+footer{
+background-color: #FFA300
+}
+             
+.cuoitrang{
+max-height: none;
+width: 100%; /* full chiều ngang */
+background-color: #C17700; 
+color: #FDEDD4;
+padding: 0;
+font-size: 16px;
+text-align: center
+}
+
+/*này cụa trang about us nè*/
+.card-about {
+background: #FFA300;
+padding: 20px;
+border-radius: 20px;
+}
+.thang{text-align: left; color: #7A3F0A }
+.card-about-img {
+height: 250px;
+width: 100%;
+border-radius: 18px;
+object-fit: cover;
+}
+
+/*này cụa trang gallery*/
+.card-hcn {
+position: relative;
+background: #FFA300;
+padding: 0;
+border-radius: 20px;
+overflow: hidden
+}
+
+.card-hcn-img {
+height: 300px;
+width: 100%;
+border-radius: 20px;
+object-fit: cover;
+display: block
+}
+
+.line {
+height: 100%;
+border-left: 5px dotted #FFA300
+}
+
+.nen-bo-tron-20px{
+margin-top: 10px;
+margin-bottom: 10px;
+background-color: #FFA300;
+border-radius: 20px;
+align-items: center;
+padding: 20px;
+}
+
+.text-can-giua
+{align-items: center;
+justify-content: center;
+text-align: center;
+padding: 40px;
+position:relative;
+overflow: hidden;
+}
+
+/*này của blog nè*/
+.bn-ct{ /*banner-center*/
+padding: 5px; 
+width: 50%;
+border: 2px solid blue;
+position: absolute;
+left: 15%; top: 7%;
+z-index: 1;
+}
+
+.anh-blog{/*ảnh trong blog*/
+height: 400px;
+border-radius: 20px;
+display: flex;
+overflow: hidden;
+object-fit: cover;
+}
+
+.blog {
+position: relative;
+height: auto;
+margin-top: 10px;
+margin-bottom: 20px
+}
+
+.blog-post {
+padding: 40px;
+border-radius: 20px;
+background: white;
+box-shadow: 10px 10px 2px rgb(255, 163, 0,0.5);
+position: relative;
+text-align: start;
+}
+
+.date-box {
+position: absolute;
+top: 0;
+right: 0;
+with: 0;
+z-index: 1;
+display: flex;
+flex-direction: column;
+background-color: #FFA300;
+color: #FCFAEB;
+padding: 15px 20px;
+text-align: center;
+border-radius: 0 20px 0 20px;
+}
+
+.flex-center {
+display: flex;
+justify-content: center; /* Căn giữa theo chiều ngang */
+align-items: center;     /* Căn giữa theo chiều dọc */
+height: 100%;           /* Đảm bảo container có chiều cao 100% */
+}
+.khung-tron{
+position: relative;
+overflow: hidden;
+background: #FFA300;
+border-radius: 50%;
+width: 100px;
+height: 100px;
+margin: 0 auto;/* Căn giữa ngang */
+}
+.khung-tron-text {
+position: absolute;
+border-radius: 50%;
+width: 100px;
+height: 100px;
+display: flex;
+justify-content: center; /* Căn giữa văn bản theo chiều ngang */
+align-items: center;     /* Căn giữa văn bản theo chiều dọc */           
+text-align: center;      /* Căn giữa văn bản theo chiều ngang */
+}
+.bg-cam{
+background: #FFA300;
+width: 100%
+}
+.col-7 img{
+width: 100%; 
+height: 400px; 
+object-fit: cover;
+border-radius: 20px}
+
+/*của trang pages*/
+.card-pages {
+color: #7A3F0A;
+background: #FFA300;
+padding: 15px;
+border-radius: 20px;
+}
+
+.card-pages img {
+height: 300px;
+width: 100%;
+border-radius: 18px;
+object-fit: cover;
+}
+
+.old-price {
+text-decoration: line-through;
+color: #FDEDD4;
+font-size: 18px
+}
+
+.new-price {
+color: #FCFAEB; /* tuỳ chọn để nổi bật */
+font-weight: bold;
+font-size: 20px;
+}
+
+.banner-pages{
+position: relative;
+width: 100%;
+height: 450px;
+overflow: hidden
+}
+.banner-pages img {
+width: 100%;
+height: 100%;
+object-fit: cover;}
+
+.banner-pages-caption{
+color: #FFA300; background: #FDEDD4;
+border-radius: 20px;
+padding: 20px 20px; 
+width: 50%;
+position: absolute;
+z-index: 1;
+left: 50%;
+top: 30%;
+transform: translate(-80%, -10%);
+}
+
+.hr1{
+border: none;/* Bỏ viền mặc định */
+height: 2px;/* Độ dày của đường */
+background-color: #FDEDD4; /* Màu sắc đường kẻ */
+width: 100%;/* Độ dài */
+margin: 10px auto;/* Căn giữa + khoảng cách trên/dưới */
+}
+/*khách hàng*/
+.khachhang{
+position: relative;
+padding: 0;
+margin-top: 10px;
+margin-bottom: 10px;
+border-radius: 20px;
+overflow: hidden
+}
+.khachhang img {
+height: 350px;
+width: 100%;
+object-fit: cover;
+display: block;
+border: 10px solid #FFA300;
+}
+.box-chat{
+border: 10px solid #FFA300;
+border-radius: 20px;  
+margin-top: 10px;
+padding: 15px;
+height: 100%;
+color: #C17506;
+box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+.box-chat p {
+display: block;
+margin: 10px;
+font-style: normal;
+font-size: 16px;
+}
+
+
+
